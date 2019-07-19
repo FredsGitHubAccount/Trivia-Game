@@ -1,16 +1,15 @@
 // Global Variables
 
 var questions = [
-    { q: "What color is the sky?", a:["Blue", "Green", "Yellow", "Purple"], c:"Blue" },
-    { q: "What color is the apple?", a:["Blue", "Green", "Red", "Purple"], c:"Red"},
-    { q: "What color is the orange?", a:["Blue", "Green", "Yellow", "Orange"], c:"Orange"},
-  ];
+    { q: "What color is the sky?", a: ["Blue", "Green", "Yellow", "Purple"], c: "Blue" },
+    { q: "What color is the apple?", a: ["Blue", "Green", "Red", "Purple"], c: "Red" },
+    { q: "What color is the orange?", a: ["Blue", "Green", "Yellow", "Orange"], c: "Orange" },
+];
 
 let questionIndex = 0
 let score = 0
 let wrong = 0
 let time = 30;
-
 
 // New game resets all variables to zero and display a play button to get started.
 const newGame = () => {
@@ -19,20 +18,17 @@ const newGame = () => {
     wrong = 0
     $("#play-button").append("<button class='newgame'> Click here to play! </button>")
 
-    $(".newgame").on("click", function() {
-        renderQuestion()
+    $(".newgame").on("click", function () {
         $("#play-button").empty()
+        renderQuestion()
     })
 }
 
 const renderQuestion = () => {
 
     // Run the render question function if there is a question remaining
-        if (questionIndex < questions.length) {
+    if (questionIndex < questions.length) {
 
-        // Defines the counter
-      
-            
         // Prints out key information for the user to see and inserts the called question and appends the answers
         $("#display-questions-text").html(questions[questionIndex].q)
         $("#score-text").text(`Total Correct : ${score}`);
@@ -41,43 +37,39 @@ const renderQuestion = () => {
         $("#directions-text").text("Click one of the answers to submit your guess!");
         $("#timer-text").html(`Remaining Time: ${time}`)
 
-
-
-        for(let i = 0; i < questions[questionIndex].a.length; i++){
+        for (let i = 0; i < questions[questionIndex].a.length; i++) {
             $("#display-answers-text").append(`<p class='answer'>${questions[questionIndex].a[i]}</p>`)
 
         }
 
-        let counter = setInterval(timer, 1000); 
+        let counter = setInterval(timer, 1000);
         function timer() {
+
             time--
-            $("#timer-text").html(`Remaining Time: ${time}`);
             if (time < 1) {
-            clearInterval(counter);
-            $(".answers p").remove();
-            $(".all").empty()
-            $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
-            wrong++;
-            questionIndex++;
-            time = 30;
-            renderQuestion()  
+                clearInterval(counter);
+                $(".all").empty()
+                $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
+                wrong++;
+                questionIndex++;
+                time = 30;
+                renderQuestion()
+            }
         }
-        }
-        
+
 
         // When the user clicks an answer, selected extracts the string from the chosen answer and compares it to the correct answer.  
-        $(".answer").on("click", function() {
+        $(".answer").on("click", function () {
             var selected = $(this).text();
-    
-            if (selected === questions[questionIndex].c){
-             
+
+            if (selected === questions[questionIndex].c) {
+
                 clearInterval(counter);
                 score++;
                 $(".all").empty();
                 $("#recap-text").text("Congrats! You were right!")
                 questionIndex++;
                 time = 30;
-              
             }
 
             else {
@@ -86,30 +78,28 @@ const renderQuestion = () => {
                 $(".all").empty()
                 $("#recap-text").text(`Aww nice try! The right answer was ${questions[questionIndex].c}!`)
                 questionIndex++;
-                time = 30
-                
-                
-            } 
+                time = 30;
+
+            }
             setTimeout(renderQuestion, 2000);
-            setTimeout(counter, 2000) 
+            setTimeout(counter, 2000)
         })
-        
+
     }
     else {
         $(".all").empty();
-      
         $("#display-questions-text").text(`You finished the game! You got ${score} out of ${questions.length} correct!`);
         $("#display-answers-text").text("Click the button below to return to the main menu!")
         $("#play-button").append("<button class='newgame'>Main Menu</button>")
 
-        $(".newgame").on("click", function() {
-     
+        $(".newgame").on("click", function () {
+
             $(".all").empty();
             newGame();
         })
-  
+
     }
-    }
+}
 
 newGame();
 
