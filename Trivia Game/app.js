@@ -29,18 +29,41 @@ const renderQuestion = () => {
 
     // Run the render question function if there is a question remaining
         if (questionIndex < questions.length) {
+
+        // Defines the counter
+      
             
         // Prints out key information for the user to see and inserts the called question and appends the answers
         $("#display-questions-text").html(questions[questionIndex].q)
         $("#score-text").text(`Total Correct : ${score}`);
         $("#wrong-text").text(`Total Wrong : ${wrong}`);
         $("#recap-text").empty();
-        $("#directions-text").text("Click one of the answers to submit your guess!")
+        $("#directions-text").text("Click one of the answers to submit your guess!");
+        $("#timer-text").html(`Remaining Time: ${time}`)
+
+
 
         for(let i = 0; i < questions[questionIndex].a.length; i++){
             $("#display-answers-text").append(`<p class='answer'>${questions[questionIndex].a[i]}</p>`)
 
         }
+
+        let counter = setInterval(timer, 1000); 
+        function timer() {
+            time--
+            $("#timer-text").html(`Remaining Time: ${time}`);
+            if (time < 1) {
+            clearInterval(counter);
+            $(".answers p").remove();
+            $(".all").empty()
+            $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
+            wrong++;
+            questionIndex++;
+            time = 30;
+            renderQuestion()  
+        }
+        }
+        
 
         // When the user clicks an answer, selected extracts the string from the chosen answer and compares it to the correct answer.  
         $(".answer").on("click", function() {
@@ -48,32 +71,27 @@ const renderQuestion = () => {
     
             if (selected === questions[questionIndex].c){
              
+                clearInterval(counter);
                 score++;
                 $(".all").empty();
                 $("#recap-text").text("Congrats! You were right!")
                 questionIndex++;
+                time = 30;
               
             }
 
-            else if (time < 1) {
-               
-                wrong++;
-                $(".all").empty()
-                $("#recap-text").text(`You ran out of time! The right answer was ${questions[questionIndex].c}!`)
-                questionIndex++;
-
-            }
             else {
-                
+                clearInterval(counter);
                 wrong++;
                 $(".all").empty()
                 $("#recap-text").text(`Aww nice try! The right answer was ${questions[questionIndex].c}!`)
                 questionIndex++;
+                time = 30
                 
                 
             } 
-            setTimeout(renderQuestion, 3000);
-            
+            setTimeout(renderQuestion, 2000);
+            setTimeout(counter, 2000) 
         })
         
     }
@@ -93,13 +111,7 @@ const renderQuestion = () => {
     }
     }
 
-    
-
 newGame();
-
-  
-
-
 
 
 
