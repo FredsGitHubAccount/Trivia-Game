@@ -46,6 +46,8 @@ const renderQuestion = () => {
         function timer() {
 
             time--
+            $("#timer-text").html(`Remaining Time: ${time}`);
+
             if (time < 1) {
                 clearInterval(counter);
                 $(".all").empty()
