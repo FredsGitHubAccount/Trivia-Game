@@ -1,0 +1,89 @@
+body {
+    text-align: center;
+    background-image: url("../images/castle.jpg");
+    background-size: 100% 1080px;
+    color:black;
+}
+
+.gamecontainer {
+
+    background: rgb(53,53,61);
+    background: radial-gradient(circle, rgba(53,53,61,1) 0%, rgba(0,98,131,1) 48%, rgba(71,71,73,1) 93%);
+    opacity:.9;
+    margin: 150px auto;
+    padding: 25px;
+    border-radius: 25px;
+    
+}
+
+.all {
+    margin: 10px;
+}
+
+.newgame {
+    background: #F6FBFC;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    color:black;
+    box-shadow: 0 9px rgb(163, 172, 173);
+    font-size: 32px;
+}
+
+.newgame:active {
+    background-color: rgb(53,53,61);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .answer {
+    background: #F6FBFC;
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    color:black;
+    box-shadow: 0 9px rgb(163, 172, 173);
+    font-size: 32px;
+}
+
+.answer:active {
+    background-color: rgb(53,53,61);
+    box-shadow: #666;
+    transform: translateY(4px);
+    
+  }
+.question {
+    color:black;
+    font-size: 44px;
+
+}
+
+.title {
+    font-size: 62px;
+    color: black;
+    margin: 0 auto;
+}
+
+#score-text{
+    color: #13b921;
+    font-size: 32px;
+
+}
+
+#wrong-text {
+    font-size: 32x;
+    color: #ff2306;
+
+}
+
+.directions {
+    font-size: 44px;
+}
+
+#timer-text {
+    font-size: 36px;
+}

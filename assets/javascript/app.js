@@ -17,10 +17,12 @@ const newGame = () => {
     questionIndex = 0
     score = 0
     wrong = 0
-    $("#play-button").append("<button class='newgame'> Click here to play! </button>")
+    $("#display-questions-text").html("<h4 class='newgame col-md-4'> Click Here To Play! </h4>")
+    $("#score-text").append(`Score : ${score}`)
+    $("#wrong-text").append(`Incorrect: ${wrong}`);
 
     $(".newgame").on("click", function () {
-        $("#play-button").empty()
+        $("#display-questions-text").empty()
         renderQuestion()
     })
 }
@@ -33,15 +35,16 @@ const renderQuestion = () => {
         counter = setInterval(timer, 1000);
 
         // Prints out key information for the user to see and inserts the called question and appends the answers
-        $("#display-questions-text").html(questions[questionIndex].q)
+        $(".all").empty();
+        $("#display-questions-text").html(`<h2 class="col-md-12 question"> ${questions[questionIndex].q}</h2>`)
         $("#score-text").text(`Total Correct : ${score}`);
         $("#wrong-text").text(`Total Wrong : ${wrong}`);
-        $("#recap-text").empty();
-        $("#directions-text").text("Click one of the answers to submit your guess!");
+        
+        $("#directions-text").html(`<h1 class="col-md-12 directions">Click one of the answers to submit your guess!</h2>`);
         $("#timer-text").html(`Remaining Time: ${time}`)
 
         for (let i = 0; i < questions[questionIndex].a.length; i++) {
-            $("#display-answers-text").append(`<p class='answer'>${questions[questionIndex].a[i]}</p>`)
+            $("#display-answers-text").append(`<h4 class='answer col-md-3'>${questions[questionIndex].a[i]}</h4>`)
 
         }
 
@@ -56,7 +59,7 @@ const renderQuestion = () => {
                 clearInterval(counter);
                 score++;
                 $(".all").empty();
-                $("#recap-text").text("Congrats! You were right!")
+                $("#directions-text").html(`<h1 class="col-md-12 popup">Congrats! You were right!</h1>`)
                 questionIndex++;
                 time = 30;
             }
@@ -65,7 +68,7 @@ const renderQuestion = () => {
                 clearInterval(counter);
                 wrong++;
                 $(".all").empty()
-                $("#recap-text").text(`Aww nice try! The right answer was ${questions[questionIndex].c}!`)
+                $("#directions-text").html(`<h1 class="col-md-12 popup"> Aww nice try! The right answer was ${questions[questionIndex].c}!</h1>`)
                 questionIndex++;
                 time = 30;
 
@@ -77,9 +80,9 @@ const renderQuestion = () => {
     }
     else {
         $(".all").empty();
-        $("#display-questions-text").text(`You finished the game! You got ${score} out of ${questions.length} correct!`);
-        $("#display-answers-text").text("Click the button below to return to play again!")
-        $("#play-button").append("<button class='newgame'>Play Again!</button>")
+        $("#directions-text").html(`<h1 class="col-md-12">You finished the game! You got ${score} out of ${questions.length} correct!</h1>`);
+        $("#display-questions-text").html(`<h2 class="col-md-12">Click the button below to return to play again!</h2>`)
+        $("#display-answers-text").html("<h3 class='col-md-4 newgame'>Play Again!</button></h3>")
 
         $(".newgame").on("click", function () {
 
@@ -101,7 +104,7 @@ function timer() {
     if (time < 1) {
         clearInterval(counter);
         $(".all").empty()
-        $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
+        $("#display-questions-text").html(`<h1 class="col-md-12 popup">Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!<h1>`)
         wrong++;
         questionIndex++;
         time = 30;

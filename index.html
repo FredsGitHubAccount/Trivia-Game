@@ -1,34 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
     <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
-    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- CSS Sheet -->
-    <link rel="stylesheet" text="type/css" href="assets/css/style.css">                          
+    <link rel="stylesheet" text="type/css" href="assets/css/style.css">
 
 </head>
+
 <body>
-        <h1>Video Game Trivia!</h1>
-        <h2 id="directions-text" class="all">Attempt to get all the questions right about ! Click the button below to get started!</h2>
-        <h3 id="timer-text" class="all">Timer Begins when you start!</h3>
-        <p id="score-text" class="all"></p>
-        <p id="wrong-text" class="all"></p>
-        <p id="display-questions-text" class="all"></p>
-        <p id="display-answers-text" class="all"></p>
-        <p id="recap-text" class="all"></p>
-        <p id="play-button" class="all"></p>
-      
+
+    <div class="container gamecontainer">
 
 
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="all title">Video Game Trivia!</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="directions-text" class="all">Get all the questions right about video games!<br>Click the button
+                        below to get started!</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 id="timer-text" class="all">Timer Begins when you start!</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 id="score-text" class="all"></h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 id="wrong-text" class="all"></h3>
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="display-questions-text" class="all"></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p id="display-answers-text" class="all"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p id="recap-text" class="all"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p id="play-button" class="all"></p>
+            </div>
+        </div>
+    </div> -->
+
+    </div>
     <script src="assets/javascript/app.js"></script>
-</body> 
+</body>
+
 </html>
