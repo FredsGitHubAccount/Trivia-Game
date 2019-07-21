@@ -10,6 +10,7 @@ let questionIndex = 0
 let score = 0
 let wrong = 0
 let time = 30;
+let counter;
 
 // New game resets all variables to zero and display a play button to get started.
 const newGame = () => {
@@ -29,6 +30,8 @@ const renderQuestion = () => {
     // Run the render question function if there is a question remaining
     if (questionIndex < questions.length) {
 
+        counter = setInterval(timer, 1000);
+
         // Prints out key information for the user to see and inserts the called question and appends the answers
         $("#display-questions-text").html(questions[questionIndex].q)
         $("#score-text").text(`Total Correct : ${score}`);
@@ -42,27 +45,11 @@ const renderQuestion = () => {
 
         }
 
-        let counter = setInterval(timer, 1000);
-        function timer() {
-
-            time--
-            $("#timer-text").html(`Remaining Time: ${time}`);
-
-            if (time < 1) {
-                clearInterval(counter);
-                $(".all").empty()
-                $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
-                wrong++;
-                questionIndex++;
-                time = 30;
-                renderQuestion()
-            }
-        }
-
 
         // When the user clicks an answer, selected extracts the string from the chosen answer and compares it to the correct answer.  
         $(".answer").on("click", function () {
-            var selected = $(this).text();
+            
+            let selected = $(this).text();
 
             if (selected === questions[questionIndex].c) {
 
@@ -91,20 +78,41 @@ const renderQuestion = () => {
     else {
         $(".all").empty();
         $("#display-questions-text").text(`You finished the game! You got ${score} out of ${questions.length} correct!`);
-        $("#display-answers-text").text("Click the button below to return to the main menu!")
-        $("#play-button").append("<button class='newgame'>Main Menu</button>")
+        $("#display-answers-text").text("Click the button below to return to play again!")
+        $("#play-button").append("<button class='newgame'>Play Again!</button>")
 
         $(".newgame").on("click", function () {
 
             $(".all").empty();
-            newGame();
+            questionIndex = 0
+            score = 0
+            wrong = 0
+            renderQuestion();
         })
 
     }
 }
 
-newGame();
+function timer() {
 
+    time--
+    $("#timer-text").html(`Remaining Time: ${time}`);
+
+    if (time < 1) {
+        clearInterval(counter);
+        $(".all").empty()
+        $("#recap-text").text(`Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!`)
+        wrong++;
+        questionIndex++;
+        time = 30;
+        setTimeout(renderQuestion,2000);
+    }
+    
+}
+
+// Called Function 
+
+newGame();
 
 
 // 1. Hit a button to start a new game and display the first question.
