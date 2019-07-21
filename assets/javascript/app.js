@@ -18,8 +18,8 @@ const newGame = () => {
     score = 0
     wrong = 0
     $("#display-questions-text").html("<h4 class='newgame col-md-4'> Click Here To Play! </h4>")
-    $("#score-text").append(`Score : ${score}`)
-    $("#wrong-text").append(`Incorrect: ${wrong}`);
+    $("#score-text").append(`Total Correct : ${score}`)
+    $("#wrong-text").append(`Total Wrong: ${wrong}`);
 
     $(".newgame").on("click", function () {
         $("#display-questions-text").empty()
