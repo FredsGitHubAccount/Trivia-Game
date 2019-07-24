@@ -17,6 +17,7 @@ let wrong = 0
 let time = 20;
 let counter;
 
+var audio = new Audio(`assets/music/hptheme.mp3`)
 // New game resets all variables to zero and display a play button to get started.
 const newGame = () => {
     questionIndex = 0
@@ -36,6 +37,7 @@ const renderQuestion = () => {
 
     // Run the render question function if there is a question remaining
     if (questionIndex < questions.length) {
+        audio.play()
 
         counter = setInterval(timer, 1000);
 
