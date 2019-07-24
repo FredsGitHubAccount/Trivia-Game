@@ -1,15 +1,20 @@
 // Global Variables
 
 var questions = [
-    { q: "What color is the sky?", a: ["Blue", "Green", "Yellow", "Purple"], c: "Blue" },
-    { q: "What color is the apple?", a: ["Blue", "Green", "Red", "Purple"], c: "Red" },
-    { q: "What color is the orange?", a: ["Blue", "Green", "Yellow", "Orange"], c: "Orange" },
+    
+    { q: "who is the author of harry potter?", a: ["george r.r. martin", "j.k. rowling", "neil gaiman", "stephen king"], c: "j.k. rowling" },
+    { q: "which actor played the role of harry potter?", a: ["tim burton", "rupert grint", "tom felton", "daniel radcliffe"], c: "daniel radcliffe" },
+    { q: "how many books were written in the harry potter series?", a: ["5", "6", "7", "8"], c: "7" },
+    { q: "when was the first book published?", a: ["1996", "1997", "2000", "2001"], c: "1997" },
+    { q: "what was the name of the last book published?", a: ["order of the phoenix", "deathly hallows", "sorcerer's stone", "half-blood prince"], c: "deathly hallows" },
+    { q: "who was considered as the main antagonist?", a: ["voldemort", "professor snape", "draco malfoy", "albus dumbledore" ], c: "voldemort" },
+    { q: "*hard question* how many staircases does hogwarts have?", a: ["156", "82", "13", "142"], c: "142" },
 ];
 
 let questionIndex = 0
 let score = 0
 let wrong = 0
-let time = 30;
+let time = 20;
 let counter;
 
 // New game resets all variables to zero and display a play button to get started.
@@ -44,7 +49,7 @@ const renderQuestion = () => {
         $("#timer-text").html(`Remaining Time: ${time}`)
 
         for (let i = 0; i < questions[questionIndex].a.length; i++) {
-            $("#display-answers-text").append(`<h4 class='answer col-md-3'>${questions[questionIndex].a[i]}</h4>`)
+            $("#display-answers-text").append(`<h4 class='answer col-md-5'>${questions[questionIndex].a[i]}</h4>`)
 
         }
 
@@ -59,22 +64,22 @@ const renderQuestion = () => {
                 clearInterval(counter);
                 score++;
                 $(".all").empty();
-                $("#directions-text").html(`<h1 class="col-md-12 popup">Congrats! You were right!</h1>`)
+                $("#directions-text").html(`<h1 class="col-md-12 popup">1 Point to gryffindor!</h1>`)
                 questionIndex++;
-                time = 30;
+                time = 20;
             }
 
             else {
                 clearInterval(counter);
                 wrong++;
                 $(".all").empty()
-                $("#directions-text").html(`<h1 class="col-md-12 popup"> Aww nice try! The right answer was ${questions[questionIndex].c}!</h1>`)
+                $("#directions-text").html(`<h1 class="col-md-12 popup"> Your wand has failed you! The right answer was ${questions[questionIndex].c}!</h1>`)
                 questionIndex++;
-                time = 30;
+                time = 20;
 
             }
-            setTimeout(renderQuestion, 2000);
-            setTimeout(counter, 2000)
+            setTimeout(renderQuestion, 5000);
+            setTimeout(counter, 5000)
         })
 
     }
@@ -101,14 +106,14 @@ function timer() {
     time--
    
 
-    if (time < 1) {
+    if (time < -1) {
         clearInterval(counter);
         $(".all").empty()
-        $("#directions-text").html(`<h1 class="col-md-12 popup">Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!<h1>`)
+        $("#directions-text").html(`<h1 class="col-md-12 popup">You didn't flick your wand quick enough! The right answer was ${questions[questionIndex].c}!<h1>`)
         wrong++;
         questionIndex++;
-        time = 30;
-        setTimeout(renderQuestion,2000);
+        time = 20;
+        setTimeout(renderQuestion,5000);
     }
     
 }
