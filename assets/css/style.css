@@ -3,6 +3,7 @@ body {
     background-image: url("../images/castle.jpg");
     background-size: 100% 1080px;
     color:black;
+    font-family: 'Cinzel', serif;
 }
 
 .gamecontainer {

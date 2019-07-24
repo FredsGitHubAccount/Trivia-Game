@@ -97,14 +97,14 @@ const renderQuestion = () => {
 }
 
 function timer() {
-
-    time--
     $("#timer-text").html(`Remaining Time: ${time}`);
+    time--
+   
 
     if (time < 1) {
         clearInterval(counter);
         $(".all").empty()
-        $("#display-questions-text").html(`<h1 class="col-md-12 popup">Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!<h1>`)
+        $("#directions-text").html(`<h1 class="col-md-12 popup">Aww, you ran out of time! The right answer was ${questions[questionIndex].c}!<h1>`)
         wrong++;
         questionIndex++;
         time = 30;
