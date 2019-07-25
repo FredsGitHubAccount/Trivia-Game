@@ -67,6 +67,7 @@ const renderQuestion = () => {
                 score++;
                 $(".all").empty();
                 $("#directions-text").html(`<h1 class="col-md-12 popup">1 Point to gryffindor!</h1>`)
+                $("#directions-text").append(`<img src="https://media2.giphy.com/media/JvOEOg9u3ZGLK/source.gif">`);
                 questionIndex++;
                 time = 20;
             }
@@ -76,6 +77,7 @@ const renderQuestion = () => {
                 wrong++;
                 $(".all").empty()
                 $("#directions-text").html(`<h1 class="col-md-12 popup"> Your wand has failed you! The right answer was ${questions[questionIndex].c}!</h1>`)
+                $("#directions-text").append(`<img src="https://i.imgur.com/foqsuOG.gif">`);
                 questionIndex++;
                 time = 20;
 
@@ -112,6 +114,7 @@ function timer() {
         clearInterval(counter);
         $(".all").empty()
         $("#directions-text").html(`<h1 class="col-md-12 popup">You didn't flick your wand quick enough! The right answer was ${questions[questionIndex].c}!<h1>`)
+        $("#directions-text").append(`<img src="https://66.media.tumblr.com/706576ce188ff312d0097f369335204d/tumblr_nt8pedAJxu1s6frvto1_400.gif">`);
         wrong++;
         questionIndex++;
         time = 20;
