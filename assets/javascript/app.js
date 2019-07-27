@@ -15,10 +15,13 @@ let questionIndex = 0
 let score = 0
 let wrong = 0
 let time = 20;
-let counter;
+
+// Variable to store my timer
+let counter; 
 
 var audio = new Audio(`assets/music/hptheme.mp3`)
-// New game resets all variables to zero and display a play button to get started.
+
+// New game resets all variables to zero and displays a play button to get started.
 const newGame = () => {
     questionIndex = 0
     score = 0

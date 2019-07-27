@@ -13,6 +13,7 @@ Open the live link at https://fredsgithubaccount.github.io/Trivia-Game/
 Front-End
 - [ ] HTML
 - [ ] CSS
+- [ ] BootStrap
 - [ ] JQuery
 
 
