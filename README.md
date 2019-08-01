@@ -20,7 +20,7 @@ Front-End
 ### Setup 
 ```
 1. git clone https://github.com/FredsGitHubAccount/Trivia-Game.git
-2. cd Crystal-Collector-Game
+2. cd Trivia-Game
 3. Open index.html in web browser
 
 ```
