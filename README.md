@@ -1,4 +1,4 @@
-# Crystal Collector Game
+# Trivia Game
 
 ## Table of Contents 
 
