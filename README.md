@@ -14,6 +14,7 @@ Front-End
 - [ ] HTML
 - [ ] CSS
 - [ ] BootStrap
+- [ ] JavaScript
 - [ ] JQuery
 
 
