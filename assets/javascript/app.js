@@ -93,7 +93,7 @@ const renderQuestion = () => {
     else {
         $(".all").empty();
         $("#directions-text").html(`<h1 class="col-md-12">You finished the game! You got ${score} out of ${questions.length} correct!</h1>`);
-        $("#display-questions-text").html(`<h2 class="col-md-12">Click the button below to return to play again!</h2>`)
+        $("#display-questions-text").html(`<h2 class="col-md-12">Click the button below to play again!</h2>`)
         $("#display-answers-text").html("<h3 class='col-md-4 newgame'>Play Again!</button></h3>")
 
         $(".newgame").on("click", function () {
