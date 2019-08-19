@@ -4,7 +4,7 @@
 
 ## Objective 
 
-Create a trivia game using HTML, CSS, & JQuery with a theme of your choice.  
+Create a trivia game using HTML, CSS, & JQuery with a Harry Potter theme.
 
 ## Live link
 Open the live link at https://fredsgithubaccount.github.io/Trivia-Game/
