@@ -9,6 +9,10 @@ Create a trivia game using HTML, CSS, & JQuery with a Harry Potter theme.
 ## Live link
 Open the live link at https://fredsgithubaccount.github.io/Trivia-Game/
 
+## Screenshot
+![Screenshot](/assets/images/Trivia.png)
+
+
 ### Technologies
 Front-End
 - [ ] HTML
