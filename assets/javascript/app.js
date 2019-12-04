@@ -80,7 +80,7 @@ const renderQuestion = () => {
                 questionIndex++;
                 time = 20;
             }
-            // If the selected text doesn't the text from the questions object, clear the counter, run a recap screen, increase the question index, and reset timer
+            // If the selected text doesn't match the text from the questions object, clear the counter, run a recap screen, increase the question index, and reset timer
 
             else {
                 clearInterval(counter);
@@ -136,7 +136,6 @@ function timer() {
 }
 
 // Called Function 
-
 newGame();
 
 
